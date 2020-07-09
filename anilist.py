@@ -529,6 +529,9 @@ def match_to_plex(anilist_series, plex_series_all, plex_series_watched):
                         "[ANILIST] Updating series id to list: %s | Plex episodes watched: %s"
                         % (custom_mapping_id, plex_watched_episode_count)
                     )
+                    if custom_mapping_id == 20799:
+                        plex_watched_episode_count -= 24
+                        logger.info("JOJO S2 PART 2 FOUND, DECREMENTING 24")
                     matched_anilist_series.append(series)
                     update_entry(
                         plex_title,
@@ -875,6 +878,9 @@ def match_series_with_seasons(
                         "[ANILIST] Updating series id to list: %s | Plex episodes watched: %s"
                         % (custom_mapping_id, plex_watched_episode_count)
                     )
+                    if custom_mapping_id == 20799:
+                        plex_watched_episode_count -= 24
+                        logger.info("JOJO S2 PART 2 FOUND, DECREMENTING 24")
                     matched_anilist_series.append(series)
                     update_entry(
                         plex_title,
@@ -1052,7 +1058,10 @@ def match_series_with_seasons(
                         plex_year = series.started_year
                         matched_anilist_series.append(series)
                         break
-
+                #SUCCESSFUL CHANGE
+                if custom_mapping_id == 20799:
+                    plex_watched_episode_count -= 24
+                    logger.info("JOJO S2 PART 2 FOUND, DECREMENTING 24")
                 if series_already_listed:
                     update_entry(
                         plex_title_lookup,
